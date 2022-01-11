@@ -1,0 +1,11 @@
+<h1>Events API</h1>
+<p>Manage events in your way</p>
+
+<h2>Create a new event!</h2>
+<%= simple_form_for [:api, :v1, @event] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, "ADD EVENT" %>
+<% end %>
