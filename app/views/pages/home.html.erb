@@ -6,6 +6,9 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :end_date%>
+  <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.all %>
   <%= f.button :submit, "ADD EVENT" %>
+
 <% end %>
+<%= console %>
