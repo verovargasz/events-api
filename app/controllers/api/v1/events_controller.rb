@@ -1,5 +1,6 @@
 class Api::V1::EventsController < Api::V1::BaseController
   before_action :set_event, only: [ :show ]
+  # before_action :set_utc_time_zone, except: [ :create ]
 
   def index
     @events = Event.all
@@ -9,11 +10,10 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def create
+    Time.zone = event_params[:time_zone]
     @event = Event.new(event_params)
-    @event.start_date = @event.start_date.utc
-    @event.end_date = @event.end_date.utc
-    @event.time_zone = "UTC"
     if @event.save
+      set_utc_time_zone
       render :show
     else
       render_error
@@ -35,7 +35,7 @@ class Api::V1::EventsController < Api::V1::BaseController
       status: :unprocessable_entity
   end
 
-  def set_user_time_zone
-    Time.zone = @event.time_zone
+  def set_utc_time_zone
+    Time.zone = "UTC"
   end
 end
