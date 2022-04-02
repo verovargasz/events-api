@@ -1,14 +1,20 @@
-<h1>Events API</h1>
-<p>Manage events in your way</p>
+<div class="p-5 text-center bg-light">
+  <h1 class="mb-3">Events API</h1>
+  <h4 class="mb-3">Manage events in your way</h4>
+</div>
 
-<h2>Create a new event!</h2>
-<%= simple_form_for [:api, :v1, @event] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date%>
-  <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.all %>
-  <%= f.button :submit, "ADD EVENT" %>
+<div class="card mx-auto mb-4" style="width: 40rem; margin: 2rem;">
+  <h2 class="card-title text-center">Create a new event!</h2>
+  <div class="card-body">
+    <%= simple_form_for [:api, :v1, @event] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date%>
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.all %>
+      <%= f.submit "ADD EVENT", class: "btn btn-primary"  %>
 
-<% end %>
-<%= console %>
+    <% end %>
+  </div>
+</div>
