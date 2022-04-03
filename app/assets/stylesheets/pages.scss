@@ -1,3 +1,30 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.input.string {
+  flex-direction: column;
+  display: flex;
+}
+
+.simple_form.new_event {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+h2 {
+  margin-top: 1%;
+}
+
+.input{
+  margin-bottom: 1%;
+}
+
+label.datetime {
+  margin-right: 1%;
+}
+
+#event_time_zone {
+  margin-bottom: 1%;
+}
